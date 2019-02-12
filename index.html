@@ -16,28 +16,83 @@
             <form action="">
                 <label for="tuning" class="visuallyHidden">Select tuning:</label>
                 <select name="tuning" id="tuning">
+                    <option value="no-selection" selected class="select-tuning">Please select a tuning:</option>
                     <option value="standard">Standard</option>
-                    <option value="half-step-down">Half Step Down</option>
+                    <option value="full-step-down">Full-step-down</option>
                 </select>
             </form>
 
+            <p class="message">click a button to hear the corresponding note:</p>
             <div class="tuner">
-                <div class="button">E</div>
-                <div class="button">A</div>
-                <div class="button">D</div>
-                <div class="button">G</div>
-                <div class="button">B</div>
-                <div class="button">E</div>
+                <div class="button six" data-key="6"></div>
+                <div class="button five" data-key="5"></div>
+                <div class="button four" data-key="4"></div>
+                <div class="button three" data-key="3"></div>
+                <div class="button two" data-key="2"></div>
+                <div class="button one" data-key="1"></div>
             </div>
+
+            <div class="song-list"></div>
+            <!-- <ul>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+            </ul> -->
+
         </div>
     </header>
 
-    <audio src="assets/sounds/6th-standard.wav"></audio>
-    <audio src="assets/sounds/5th-standard.wav"></audio>
-    <audio src="assets/sounds/4th-standard.wav"></audio>
-    <audio src="assets/sounds/3rd-standard.wav"></audio>
-    <audio src="assets/sounds/2nd-standard.wav"></audio>
-    <audio src="assets/sounds/1st-standard.wav"></audio>
+    <audio src="assets/sounds/6th-standard.wav" data-key="6"></audio>
+    <audio src="assets/sounds/5th-standard.wav" data-key="5"></audio>
+    <audio src="assets/sounds/4th-standard.wav" data-key="4"></audio>
+    <audio src="assets/sounds/3rd-standard.wav" data-key="3"></audio>
+    <audio src="assets/sounds/2nd-standard.wav" data-key="2"></audio>
+    <audio src="assets/sounds/1st-standard.wav" data-key="1"></audio>
+
+<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+<script>
+    $(function() {
+
+        $('select').change(function() {
+
+            let selection = $('select').val();
+
+            if (selection === "standard") { // or ($('select :selected').text() === "Standard") ??
+                $('.six').html('E');
+                $('.five').html('A');
+                $('.four').html('D');
+                $('.three').html('G');
+                $('.two').html('B');
+                $('.one').html('E');
+                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
+                $('.tuner').removeClass('full-step');
+                
+            } else if (selection === "full-step-down") {
+                $('.six').html('D');
+                $('.five').html('A');
+                $('.four').html('F');
+                $('.three').html('G');
+                $('.two').html('G');
+                $('.one').html('D');  
+                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
+                $('.tuner').addClass('full-step');
+            }
+        });
+        
+        // $('.button').click(function() {
+        //     $(this).
+        // })
+    
+    });
+
+ 
+
+
+
+
+
+</script>
+
 
 
 </body>

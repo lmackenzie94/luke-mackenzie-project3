@@ -1,16 +1,18 @@
 // VARIABLES
 
-$tunerBackground: #bada55;
-$backgroundColour: #fffbf2;
-$buttonColour: #fff;
-$baseFont: 'Amatic SC', cursive;
+$tuner-background-1: #bada55;
+$tuner-background-2:  #55dab8;
+$background-colour: #fffbf2;
+$button-colour: #fff;
+$base-font: 'Amatic SC', cursive;
 
 html {
     font-size: 125%;
 }
 
 body {
-    background-image: linear-gradient(to bottom, darken($backgroundColour, 5%), $backgroundColour);
+    background-image: linear-gradient(to bottom, darken($background-colour, 5%), $background-colour);
+    font-size: 1rem;
 }
 
 .wrapper {
