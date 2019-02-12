@@ -55,7 +55,7 @@
     $(function() {
 
         const songList = {
-            standard: ['Song 1', 'Song 2', 'Song 3'],
+            standard: ['Free Fallin - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
             fullStepDown: ['Song 4', 'Song 5', 'Song 6']
         }
 
@@ -79,9 +79,14 @@
                 console.log(currentSongList);
                 $('ul').css('display', 'block');
 
-                for(i = 0; i < currentSongList.length; i++) {
-                     $('a').html(`${currentSongList[i]}`);
-                }
+                // for(i = 0; i < currentSongList.length; i++) {
+                //      $('a').html(`${currentSongList[i]}`);
+                // }
+
+                currentSongList.forEach(i => {
+                    $('a').html(`${i}`);
+                    console.log(i);
+                });
                
             } else if (selection === "fullStepDown") {
                 $('.six').html('D');
@@ -96,9 +101,14 @@
                 console.log(currentSongList);
                 $('ul').css('display', 'block');
 
-                for (i = 0; i < currentSongList.length; i++) {
-                    $('a').html(`${currentSongList[i]}`);
-                }
+                // for (i = 0; i < currentSongList.length; i++) {
+                //     $('a').html(`${currentSongList[i]}`);
+                // }
+
+                currentSongList.forEach(i => {
+                    $('a').html(`${i}`);
+                    console.log(i);
+                });
             }    
         });
         
