@@ -16,9 +16,9 @@
             <form action="">
                 <label for="tuning" class="visuallyHidden">Select tuning:</label>
                 <select name="tuning" id="tuning">
-                    <option value="no-selection" selected class="select-tuning">Please select a tuning:</option>
+                    <option value="noSelection" selected class="select-tuning">Please select a tuning:</option>
                     <option value="standard">Standard</option>
-                    <option value="full-step-down">Full-step-down</option>
+                    <option value="fullStepDown">Full-step-down</option>
                 </select>
             </form>
 
@@ -33,11 +33,11 @@
             </div>
 
             <div class="song-list"></div>
-            <!-- <ul>
-                <li><a href="#">Test</a></li>
-                <li><a href="#">Test</a></li>
-                <li><a href="#">Test</a></li>
-            </ul> -->
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
 
         </div>
     </header>
@@ -50,13 +50,22 @@
     <audio src="assets/sounds/1st-standard.wav" data-key="1"></audio>
 
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+
 <script>
     $(function() {
+
+        const songList = {
+            standard: ['Song 1', 'Song 2', 'Song 3'],
+            fullStepDown: ['Song 4', 'Song 5', 'Song 6']
+        }
+
+        console.log(songList.standard);
 
         $('select').change(function() {
 
             let selection = $('select').val();
-
+            let currentSongList = songList[selection];
+            
             if (selection === "standard") { // or ($('select :selected').text() === "Standard") ??
                 $('.six').html('E');
                 $('.five').html('A');
@@ -66,8 +75,15 @@
                 $('.one').html('E');
                 $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
                 $('.tuner').removeClass('full-step');
-                
-            } else if (selection === "full-step-down") {
+
+                console.log(currentSongList);
+                $('ul').css('display', 'block');
+
+                for(i = 0; i < currentSongList.length; i++) {
+                     $('a').html(`${currentSongList[i]}`);
+                }
+               
+            } else if (selection === "fullStepDown") {
                 $('.six').html('D');
                 $('.five').html('A');
                 $('.four').html('F');
@@ -76,12 +92,25 @@
                 $('.one').html('D');  
                 $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
                 $('.tuner').addClass('full-step');
-            }
+
+                console.log(currentSongList);
+                $('ul').css('display', 'block');
+
+                for (i = 0; i < currentSongList.length; i++) {
+                    $('a').html(`${currentSongList[i]}`);
+                }
+            }    
         });
         
-        // $('.button').click(function() {
-        //     $(this).
-        // })
+        $('.button').on('click', function(key) {
+
+            let currentButton = $(this).data('key');
+            let sound = $(`audio[data-key="${currentButton}"]`).attr('src');
+            
+            console.log(currentButton);
+            console.log(sound);
+ 
+        });
     
     });
 

@@ -186,10 +186,10 @@ html {
 }
 
 body {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff3d9), to(#fffbf2));
-  background-image: -webkit-linear-gradient(top, #fff3d9, #fffbf2);
-  background-image: -o-linear-gradient(top, #fff3d9, #fffbf2);
-  background-image: linear-gradient(to bottom, #fff3d9, #fffbf2);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fffbf2), to(#ffebbf));
+  background-image: -webkit-linear-gradient(top, #fffbf2, #ffebbf);
+  background-image: -o-linear-gradient(top, #fffbf2, #ffebbf);
+  background-image: linear-gradient(to bottom, #fffbf2, #ffebbf);
   font-size: 1rem;
 }
 
@@ -201,8 +201,8 @@ body {
 
 header {
   font-family: "Amatic SC", cursive;
-  height: 100vh;
-  background: url(assets/test4.svg) no-repeat center;
+  min-height: 100vh;
+  background: url(assets/background.svg) no-repeat center;
   background-size: cover;
 }
 
@@ -308,6 +308,19 @@ option {
 
 .song-list span {
   color: #da7655;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+ul a {
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15% 0;
 }
 
 /*# sourceMappingURL=style.css.map */

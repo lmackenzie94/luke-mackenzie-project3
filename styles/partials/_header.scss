@@ -1,7 +1,7 @@
 header {
     font-family: $base-font;
-    height: 100vh;
-    background: url(assets/test4.svg) no-repeat center;
+    min-height: 100vh;
+    background: url(assets/background.svg) no-repeat center;
     background-size: cover;
 }
 
@@ -73,4 +73,16 @@ option {
 
 .song-list span {
     color: #da7655;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    display: none;
+    a {
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+        margin: 15% 0;
+    }
 }
