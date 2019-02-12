@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guitar Tuner</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="content wrapper">
+            <h1>- Guitar Tuner -</h1>
+
+            <form action="">
+                <label for="tuning" class="visuallyHidden">Select tuning:</label>
+                <select name="tuning" id="tuning">
+                    <option value="standard">Standard</option>
+                    <option value="half-step-down">Half Step Down</option>
+                </select>
+            </form>
+
+            <div class="tuner">
+                <div class="button">E</div>
+                <div class="button">A</div>
+                <div class="button">D</div>
+                <div class="button">G</div>
+                <div class="button">B</div>
+                <div class="button">E</div>
+            </div>
+        </div>
+    </header>
+
+    <audio src="assets/sounds/6th-standard.wav"></audio>
+    <audio src="assets/sounds/5th-standard.wav"></audio>
+    <audio src="assets/sounds/4th-standard.wav"></audio>
+    <audio src="assets/sounds/3rd-standard.wav"></audio>
+    <audio src="assets/sounds/2nd-standard.wav"></audio>
+    <audio src="assets/sounds/1st-standard.wav"></audio>
+
+
+</body>
+</html>
