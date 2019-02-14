@@ -271,14 +271,18 @@ h1 {
   -webkit-transition: .1s all ease-out;
   -o-transition: .1s all ease-out;
   transition: .1s all ease-out;
+  -webkit-box-shadow: 3px 3px 5px #5a667a;
+  box-shadow: 3px 3px 5px #5a667a;
 }
 
 .tuner .button:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  background: #da7655;
-  border: 2px solid #000;
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #da7655;
+  font-size: 2.5rem;
 }
 
 .tuner.full-step {
@@ -301,6 +305,10 @@ select {
   text-align: center;
   background: transparent;
   color: #5a667a;
+}
+
+select:focus {
+  border: 4px solid #da7655;
 }
 
 option {
@@ -326,6 +334,10 @@ ul a {
   text-decoration: none;
   display: inline-block;
   margin-bottom: 20px;
+}
+
+ul a:hover {
+  color: #da7655;
 }
 
 /*# sourceMappingURL=style.css.map */

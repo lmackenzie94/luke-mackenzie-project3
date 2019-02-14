@@ -55,14 +55,17 @@
             const selection = $('select').val();
             const currentSongList = songList[selection];
 
-            if (selection !== "noSelection") {
-                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
-            } else {
+            if (selection === "noSelection") {
                 $('.song-list').html(`<h2>Please select a tuning above</h2>`);
                 $('ul').empty();
-            }
-            
-            if (selection === "standard") { // or ($('select :selected').text() === "Standard") ??
+                $('.six').html('');
+                $('.five').html('');
+                $('.four').html('');
+                $('.three').html('');
+                $('.two').html('');
+                $('.one').html('');
+
+            } else if (selection === "standard") { // or ($('select :selected').text() === "Standard") ??
                 $('.six').html('E');
                 $('.five').html('A');
                 $('.four').html('D');
@@ -80,6 +83,7 @@
                     $('ul').append(`<li><a href="#">${i}</a></li>`);
                     console.log(i);
                 });
+                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
                
             } else if (selection === "fullStepDown") {
                 $('.six').html('D');
@@ -97,8 +101,9 @@
                 $('ul').empty();
                 currentSongList.forEach(i => {
                     $('ul').append(`<li><a href="#">${i}</a></li>`);
-                    console.log(i);
+                    console.log(i); 
                 });
+                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
             }
         });
 
