@@ -25,7 +25,7 @@ h1 {
 .tuner {
     width: 80%;
     border: 5px solid #000;
-    border-radius: 75px;
+    border-radius: 80px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -73,6 +73,10 @@ option {
     color: #000;
 }
 
+.select-tuning {
+        color: #5a667a;
+    }
+
 .song-list span {
     color: #da7655;
 }
@@ -85,6 +89,6 @@ ul {
         color: #000;
         text-decoration: none;
         display: inline-block;
-        margin-bottom: 15%;
+        margin-bottom: 20px;
     }
 }
