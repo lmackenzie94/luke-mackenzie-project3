@@ -246,10 +246,10 @@ h1 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 2% 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#bada55), to(#97ba28));
-  background-image: -webkit-linear-gradient(top, #bada55, #97ba28);
-  background-image: -o-linear-gradient(top, #bada55, #97ba28);
-  background-image: linear-gradient(to bottom, #bada55, #97ba28);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#737373));
+  background-image: -webkit-linear-gradient(top, #999, #737373);
+  background-image: -o-linear-gradient(top, #999, #737373);
+  background-image: linear-gradient(to bottom, #999, #737373);
 }
 
 .tuner .button {
@@ -285,11 +285,25 @@ h1 {
   font-size: 2.7rem;
 }
 
+.tuner.standard {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#bada55), to(#97ba28));
+  background-image: -webkit-linear-gradient(top, #bada55, #97ba28);
+  background-image: -o-linear-gradient(top, #bada55, #97ba28);
+  background-image: linear-gradient(to bottom, #bada55, #97ba28);
+}
+
 .tuner.full-step {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#55dab8), to(#28ba95));
   background-image: -webkit-linear-gradient(top, #55dab8, #28ba95);
   background-image: -o-linear-gradient(top, #55dab8, #28ba95);
   background-image: linear-gradient(to bottom, #55dab8, #28ba95);
+}
+
+.tuner.half-step {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#dd1c1c), to(#991313));
+  background-image: -webkit-linear-gradient(top, #dd1c1c, #991313);
+  background-image: -o-linear-gradient(top, #dd1c1c, #991313);
+  background-image: linear-gradient(to bottom, #dd1c1c, #991313);
 }
 
 select {

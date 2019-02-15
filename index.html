@@ -18,11 +18,12 @@
                 <select name="tuning" id="tuning">
                     <option value="noSelection" selected class="select-tuning">Please select a tuning:</option>
                     <option value="standard">Standard</option>
+                    <option value="halfStepDown">Half-step-down</option>
                     <option value="fullStepDown">Full-step-down</option>
                 </select>
             </form>
 
-            <p class="message">click a button to hear the corresponding note:</p>
+            <p class="message"></p>
             <div class="tuner"></div>
             <div class="song-list">
                 <h2>Please select a tuning above</h2>
@@ -44,7 +45,8 @@
 
         const songList = {
             standard: ['Free Fallin\' - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
-            fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons']
+            fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons'],
+            halfStepDown: ['Swing Life Away - Rise Against', 'Sweet Child O\' Mine - Guns N\' Roses', 'Bold As Love - Jimi Hendrix']
         }
 
         // console.log(songList.standard);
@@ -57,6 +59,7 @@
             const notes = {
                 standard: ['E', 'A', 'D', 'G', 'B', 'E'],
                 fullStepDown: ['D', 'G', 'C', 'F', 'A', 'D'],
+                halfStepDown: ['D#', 'G#', 'C#', 'F#', 'A#', 'D#'],
                 noSelection: []
             }
 
@@ -72,16 +75,22 @@
             })
 
             // change background colour of tuner based on the Selection
+
+            $('.tuner').removeClass('full-step half-step standard');
             if (selection === "fullStepDown") {
                 $('.tuner').addClass('full-step');
-            } else {
-                $('.tuner').removeClass('full-step');
-            }
+            } else if (selection === "halfStepDown") {
+                $('.tuner').addClass('half-step');
+            } else if (selection === "standard") {
+                $('.tuner').addClass('standard');
+            } 
 
             if (selection === "noSelection") {
                 $('.song-list').html(`<h2>Please select a tuning above</h2>`);
+                $('.message').text('');
             } else {
                 $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning</h2>`);
+                $('.message').text('click a button to hear the corresponding note:');
             }
 
             console.log(selection);
@@ -107,16 +116,26 @@
                 "assets/sounds/full-step-4.wav",
                 "assets/sounds/full-step-5.wav",
                 "assets/sounds/full-step-6.wav",
+            ],
+            halfStepDown: [
+                "assets/sounds/half-step-1.wav",
+                "assets/sounds/half-step-2.wav",
+                "assets/sounds/half-step-3.wav",
+                "assets/sounds/half-step-4.wav",
+                "assets/sounds/half-step-5.wav",
+                "assets/sounds/half-step-6.wav",
             ]
         };
         
         $('.tuner').on('click', '.button', function(key) { // event bubbling??
             // get the current note from the button pressed
             const currentButton = $(this).data('key');
+            console.log(currentButton);
 
             // Using the note defined above, find the corresponding audio file from the standardTuning array
             const currentSelection = $('select').val();
             const audioFile = tuningSounds[currentSelection][currentButton - 1];
+            console.log(currentSelection);
 
             // Now that we have the correct audio file, instantiate a new Audio object, passing in the audio file
             const sound = new Audio(audioFile);

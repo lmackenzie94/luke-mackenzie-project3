@@ -31,7 +31,7 @@ h1 {
     align-items: center;
     flex-wrap: wrap;
     padding: 2% 0;
-    background-image: linear-gradient(to bottom, $tuner-background-1, darken($tuner-background-1, 15%));
+    background-image: linear-gradient(to bottom, #999, darken(#999, 15%));
     .button {
         border-radius: 50%;
         height: 100px;
@@ -53,8 +53,16 @@ h1 {
     }
 }
 
+.tuner.standard {
+    background-image: linear-gradient(to bottom, $tuner-background-1, darken($tuner-background-1, 15%));
+}
+
 .tuner.full-step {
     background-image: linear-gradient(to bottom, $tuner-background-2, darken($tuner-background-2, 15%));
+}
+
+.tuner.half-step {
+    background-image: linear-gradient(to bottom, $tuner-background-3, darken($tuner-background-3, 15%));
 }
 
 select {
@@ -78,8 +86,8 @@ option {
 }
 
 .select-tuning {
-        color: #5a667a;
-    }
+    color: #5a667a;
+}
 
 .song-list span {
     color: #da7655;
