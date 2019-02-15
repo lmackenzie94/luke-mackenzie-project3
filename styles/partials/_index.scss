@@ -19,7 +19,7 @@ h1 {
 
 .message {
     margin: 0 0 1% 0;
-    color: #5a667a;
+    color: $second-font-colour;
 }
 
 .tuner {
@@ -31,7 +31,7 @@ h1 {
     align-items: center;
     flex-wrap: wrap;
     padding: 2% 0;
-    background-image: linear-gradient(to bottom, #999, darken(#999, 15%));
+    background-image: linear-gradient(to bottom, $tuner-background-default, darken($tuner-background-default, 20%));
     .button {
         border-radius: 50%;
         height: 100px;
@@ -39,30 +39,31 @@ h1 {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 3rem;
+        font-size: 2.4rem;
         margin: 1%;
         background: $button-colour;
         transition: .1s all ease-out;
-        box-shadow: 3px 3px 5px #5a667a;
+        box-shadow: 3px 3px 5px $second-font-colour;
+        color: $second-font-colour;
         &:hover {
             transform: scale(.95);
             box-shadow: none;
-            color: #da7655;
+            color: #000;
             font-size: 2.7rem;
         }
     }
 }
 
 .tuner.standard {
-    background-image: linear-gradient(to bottom, $tuner-background-1, darken($tuner-background-1, 15%));
+    background-image: linear-gradient(to bottom, $tuner-background-1, darken($tuner-background-1, 20%));
 }
 
 .tuner.full-step {
-    background-image: linear-gradient(to bottom, $tuner-background-2, darken($tuner-background-2, 15%));
+    background-image: linear-gradient(to bottom, $tuner-background-2, darken($tuner-background-2, 20%));
 }
 
 .tuner.half-step {
-    background-image: linear-gradient(to bottom, $tuner-background-3, darken($tuner-background-3, 15%));
+    background-image: linear-gradient(to bottom, $tuner-background-3, darken($tuner-background-3, 20%));
 }
 
 select {
@@ -75,10 +76,7 @@ select {
     margin-bottom: 15%;
     text-align: center;
     background: transparent;
-    color: #5a667a;
-    // &:focus {
-    //     border: 4px solid #da7655;
-    // }
+    color: $second-font-colour;
 }
 
 option {
@@ -86,19 +84,16 @@ option {
 }
 
 .select-tuning {
-    color: #5a667a;
+    color: $second-font-colour;
 }
 
-.song-list span {
-    color: #da7655;
+.list-title span {
+    color: $accent-font-colour;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    li {
-        color: #000;
-        text-decoration: none;
-        margin-bottom: 20px;
-    }
+li {
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
+

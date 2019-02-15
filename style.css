@@ -246,10 +246,10 @@ h1 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 2% 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#737373));
-  background-image: -webkit-linear-gradient(top, #999, #737373);
-  background-image: -o-linear-gradient(top, #999, #737373);
-  background-image: linear-gradient(to bottom, #999, #737373);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#666666));
+  background-image: -webkit-linear-gradient(top, #999, #666666);
+  background-image: -o-linear-gradient(top, #999, #666666);
+  background-image: linear-gradient(to bottom, #999, #666666);
 }
 
 .tuner .button {
@@ -265,7 +265,7 @@ h1 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin: 1%;
   background: #fff;
   -webkit-transition: .1s all ease-out;
@@ -273,6 +273,7 @@ h1 {
   transition: .1s all ease-out;
   -webkit-box-shadow: 3px 3px 5px #5a667a;
   box-shadow: 3px 3px 5px #5a667a;
+  color: #5a667a;
 }
 
 .tuner .button:hover {
@@ -281,29 +282,29 @@ h1 {
   transform: scale(0.95);
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #da7655;
+  color: #000;
   font-size: 2.7rem;
 }
 
 .tuner.standard {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#bada55), to(#97ba28));
-  background-image: -webkit-linear-gradient(top, #bada55, #97ba28);
-  background-image: -o-linear-gradient(top, #bada55, #97ba28);
-  background-image: linear-gradient(to bottom, #bada55, #97ba28);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#bada55), to(#86a524));
+  background-image: -webkit-linear-gradient(top, #bada55, #86a524);
+  background-image: -o-linear-gradient(top, #bada55, #86a524);
+  background-image: linear-gradient(to bottom, #bada55, #86a524);
 }
 
 .tuner.full-step {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#55dab8), to(#28ba95));
-  background-image: -webkit-linear-gradient(top, #55dab8, #28ba95);
-  background-image: -o-linear-gradient(top, #55dab8, #28ba95);
-  background-image: linear-gradient(to bottom, #55dab8, #28ba95);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d89ff9), to(#b13ff3));
+  background-image: -webkit-linear-gradient(top, #d89ff9, #b13ff3);
+  background-image: -o-linear-gradient(top, #d89ff9, #b13ff3);
+  background-image: linear-gradient(to bottom, #d89ff9, #b13ff3);
 }
 
 .tuner.half-step {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#dd1c1c), to(#991313));
-  background-image: -webkit-linear-gradient(top, #dd1c1c, #991313);
-  background-image: -o-linear-gradient(top, #dd1c1c, #991313);
-  background-image: linear-gradient(to bottom, #dd1c1c, #991313);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#55dab8), to(#24a584));
+  background-image: -webkit-linear-gradient(top, #55dab8, #24a584);
+  background-image: -o-linear-gradient(top, #55dab8, #24a584);
+  background-image: linear-gradient(to bottom, #55dab8, #24a584);
 }
 
 select {
@@ -329,16 +330,11 @@ option {
   color: #5a667a;
 }
 
-.song-list span {
+.list-title span {
   color: #da7655;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul li {
+li {
   color: #000;
   text-decoration: none;
   margin-bottom: 20px;

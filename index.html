@@ -25,10 +25,16 @@
 
             <p class="message"></p>
             <div class="tuner"></div>
-            <div class="song-list">
-                <h2>Please select a tuning above</h2>
-            </div>
-            <ul></ul>   
+            <section>
+                <div class="list-title">
+                    <h2>Please select a tuning above</h2>
+                </div>
+                <div class="list-songs">
+                    <ul></ul>
+                </div>
+            </section>
+            
+            
 
         </div>
     </header>
@@ -38,6 +44,8 @@
 <script>
 
     const tunerApp = {};
+
+    const $tuner = $('.tuner');
 
      
 
@@ -62,41 +70,43 @@
                 halfStepDown: ['D#', 'G#', 'C#', 'F#', 'A#', 'D#'],
                 noSelection: []
             }
+            // const $tuner = $('.tuner');
+            const $popularSongs = $('.list-songs ul');
 
             // empty tuner & popular song list after every change in Selection
-            $('.tuner').empty();
-            $('ul').empty();
+            $tuner.empty();
+            $popularSongs.empty();
 
             // populate tuner with buttons based on the Selection
             let keyCount = 6;
             notes[selection].forEach((i) => {
-                $('.tuner').append(`<div class="button" data-key="${keyCount}">${i}</div>`);
+                $tuner.append(`<div class="button" data-key="${keyCount}">${i}</div>`);
                 keyCount--;
             })
 
             // change background colour of tuner based on the Selection
 
-            $('.tuner').removeClass('full-step half-step standard');
+            $tuner.removeClass('full-step half-step standard');
             if (selection === "fullStepDown") {
-                $('.tuner').addClass('full-step');
+                $tuner.addClass('full-step');
             } else if (selection === "halfStepDown") {
-                $('.tuner').addClass('half-step');
+                $tuner.addClass('half-step');
             } else if (selection === "standard") {
-                $('.tuner').addClass('standard');
+                $tuner.addClass('standard');
             } 
 
             if (selection === "noSelection") {
-                $('.song-list').html(`<h2>Please select a tuning above</h2>`);
+                $('.list-title').html(`<h2>Please select a tuning above</h2>`);
                 $('.message').text('');
             } else {
-                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning</h2>`);
+                $('.list-title').html(`<h2>Popular songs in <span>${selection}</span> tuning</h2>`);
                 $('.message').text('click a button to hear the corresponding note:');
             }
 
             console.log(selection);
 
             currentSongList.forEach(i => {
-                $('ul').append(`<li>${i}</li>`);
+                $popularSongs.append(`<li>${i}</li>`);
             });
         });
 
@@ -127,7 +137,7 @@
             ]
         };
         
-        $('.tuner').on('click', '.button', function(key) { // event bubbling??
+        $tuner.on('click', '.button', function(key) { // event bubbling
             // get the current note from the button pressed
             const currentButton = $(this).data('key');
             console.log(currentButton);
