@@ -23,17 +23,11 @@
             </form>
 
             <p class="message">click a button to hear the corresponding note:</p>
-            <div class="tuner">
-                <div class="button six" data-key="6"></div>
-                <div class="button five" data-key="5"></div>
-                <div class="button four" data-key="4"></div>
-                <div class="button three" data-key="3"></div>
-                <div class="button two" data-key="2"></div>
-                <div class="button one" data-key="1"></div>
+            <div class="tuner"></div>
+            <div class="song-list">
+                <h2>Please select a tuning above</h2>
             </div>
-
-            <div class="song-list"></div>
-            <ul></ul>
+            <ul></ul>   
 
         </div>
     </header>
@@ -41,96 +35,95 @@
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 
 <script>
+
+    const tunerApp = {};
+
+     
+
     $(function() {
 
         const songList = {
-            standard: ['Free Fallin - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
+            standard: ['Free Fallin\' - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
             fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons']
         }
 
-        console.log(songList.standard);
+        // console.log(songList.standard);
+        
 
-        $('select').change(function() {
+        tunerApp.updateButton = $('select').change(function() {
 
             const selection = $('select').val();
             const currentSongList = songList[selection];
+            const notes = {
+                standard: ['E', 'A', 'D', 'G', 'B', 'E'],
+                fullStepDown: ['D', 'G', 'C', 'F', 'A', 'D'],
+                noSelection: []
+            }
+
+            // empty tuner & popular song list after every change in Selection
+            $('.tuner').empty();
+            $('ul').empty();
+
+            // populate tuner with buttons based on the Selection
+            let keyCount = 6;
+            notes[selection].forEach((i) => {
+                $('.tuner').append(`<div class="button" data-key="${keyCount}">${i}</div>`);
+                keyCount--;
+            })
+
+            // change background colour of tuner based on the Selection
+            if (selection === "fullStepDown") {
+                $('.tuner').addClass('full-step');
+            } else {
+                $('.tuner').removeClass('full-step');
+            }
 
             if (selection === "noSelection") {
                 $('.song-list').html(`<h2>Please select a tuning above</h2>`);
-                $('ul').empty();
-                $('.six').html('');
-                $('.five').html('');
-                $('.four').html('');
-                $('.three').html('');
-                $('.two').html('');
-                $('.one').html('');
-
-            } else if (selection === "standard") { // or ($('select :selected').text() === "Standard") ??
-                $('.six').html('E');
-                $('.five').html('A');
-                $('.four').html('D');
-                $('.three').html('G');
-                $('.two').html('B');
-                $('.one').html('E');
-                
-                $('.tuner').removeClass('full-step');
-
-                console.log(currentSongList);
-                $('ul').css('display', 'block');
-
-                $('ul').empty();
-                currentSongList.forEach(i => {
-                    $('ul').append(`<li><a href="#">${i}</a></li>`);
-                    console.log(i);
-                });
-                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
-               
-            } else if (selection === "fullStepDown") {
-                $('.six').html('D');
-                $('.five').html('G');
-                $('.four').html('C');
-                $('.three').html('F');
-                $('.two').html('A');
-                $('.one').html('D');  
-                // $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
-                $('.tuner').addClass('full-step');
-
-                console.log(currentSongList);
-                $('ul').css('display', 'block');
-
-                $('ul').empty();
-                currentSongList.forEach(i => {
-                    $('ul').append(`<li><a href="#">${i}</a></li>`);
-                    console.log(i); 
-                });
-                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning:</h2>`);
+            } else {
+                $('.song-list').html(`<h2>Popular songs in <span>${selection}</span> tuning</h2>`);
             }
+
+            console.log(selection);
+
+            currentSongList.forEach(i => {
+                $('ul').append(`<li>${i}</li>`);
+            });
         });
 
-        const standardTuning = [
-            "assets/sounds/1st-standard.wav",
-            "assets/sounds/2nd-standard.wav",
-            "assets/sounds/3rd-standard.wav",
-            "assets/sounds/4th-standard.wav",
-            "assets/sounds/5th-standard.wav",
-             "assets/sounds/6th-standard.wav",
-        ]
+        const tuningSounds = {
+            standard: [
+                "assets/sounds/standard-1.wav",
+                "assets/sounds/standard-2.wav",
+                "assets/sounds/standard-3.wav",
+                "assets/sounds/standard-4.wav",
+                "assets/sounds/standard-5.wav",
+                "assets/sounds/standard-6.wav",
+            ],
+            fullStepDown: [
+                "assets/sounds/full-step-1.wav",
+                "assets/sounds/full-step-2.wav",
+                "assets/sounds/full-step-3.wav",
+                "assets/sounds/full-step-4.wav",
+                "assets/sounds/full-step-5.wav",
+                "assets/sounds/full-step-6.wav",
+            ]
+        };
         
-        $('.button').on('click', function(key) {
+        $('.tuner').on('click', '.button', function(key) { // event bubbling??
             // get the current note from the button pressed
             const currentButton = $(this).data('key');
-            console.log(currentButton);
 
             // Using the note defined above, find the corresponding audio file from the standardTuning array
-            const audioFile = standardTuning[currentButton - 1]
+            const currentSelection = $('select').val();
+            const audioFile = tuningSounds[currentSelection][currentButton - 1];
 
             // Now that we have the correct audio file, instantiate a new Audio object, passing in the audio file
-            const sound = new Audio(audioFile)
+            const sound = new Audio(audioFile);
 
             // sound object contains a play method that will play the sound
-            sound.play()
+            sound.play();
   
- 
         });
     
     });
