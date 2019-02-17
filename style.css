@@ -193,10 +193,15 @@ body {
   font-size: 1rem;
 }
 
+h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   max-width: 1600px;
   width: 95%;
-  margin: 0 auto 5% auto;
+  margin: 0 auto 4% auto;
 }
 
 header {
@@ -220,13 +225,17 @@ header {
 }
 
 h1 {
-  margin: 0;
   font-size: 4.5rem;
   text-align: center;
 }
 
+h2 {
+  font-size: 1.5rem;
+  margin-top: 8%;
+}
+
 .message {
-  margin: 0 0 1% 0;
+  margin: 0 0 10px 0;
   color: #5a667a;
 }
 
@@ -316,7 +325,7 @@ select {
   appearance: none;
   border-bottom: 4px solid #000;
   padding: 5px;
-  margin-bottom: 15%;
+  margin-bottom: 10%;
   text-align: center;
   background: transparent;
   color: #5a667a;
@@ -338,6 +347,33 @@ li {
   color: #000;
   text-decoration: none;
   margin-bottom: 20px;
+}
+
+@media (max-width: 915px) {
+  .tuner {
+    width: 50%;
+  }
+  .tuner .button {
+    margin: 3% 3%;
+  }
+}
+
+@media (max-width: 475px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  select {
+    width: 250px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

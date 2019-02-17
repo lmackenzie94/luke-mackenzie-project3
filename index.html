@@ -33,9 +33,6 @@
                     <ul></ul>
                 </div>
             </section>
-            
-            
-
         </div>
     </header>
 
@@ -43,24 +40,24 @@
 
 <script>
 
-    const tunerApp = {};
+    const tunerApp = {}; //namespace 
 
-    const $tuner = $('.tuner');
+    tunerApp.$tuner = $('.tuner');
 
-     
+    tunerApp.init = function() {
+        tunerApp.updateTuner();
+        tunerApp.playSound();
+    }
 
-    $(function() {
-
-        const songList = {
-            standard: ['Free Fallin\' - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
-            fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons'],
-            halfStepDown: ['Swing Life Away - Rise Against', 'Sweet Child O\' Mine - Guns N\' Roses', 'Bold As Love - Jimi Hendrix']
-        }
-
-        // console.log(songList.standard);
+    const songList = {
+        standard: ['Free Fallin\' - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
+        fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons'],
+        halfStepDown: ['Swing Life Away - Rise Against', 'Sweet Child O\' Mine - Guns N\' Roses', 'Bold As Love - Jimi Hendrix']
+    }
         
+    tunerApp.updateTuner = () => {
 
-        tunerApp.updateButton = $('select').change(function() {
+        $('select').change(function() {
 
             const selection = $('select').val();
             const currentSongList = songList[selection];
@@ -74,25 +71,25 @@
             const $popularSongs = $('.list-songs ul');
 
             // empty tuner & popular song list after every change in Selection
-            $tuner.empty();
+            tunerApp.$tuner.empty();
             $popularSongs.empty();
 
             // populate tuner with buttons based on the Selection
             let keyCount = 6;
             notes[selection].forEach((i) => {
-                $tuner.append(`<div class="button" data-key="${keyCount}">${i}</div>`);
+                tunerApp.$tuner.append(`<div class="button" data-key="${keyCount}">${i}</div>`);
                 keyCount--;
             })
 
             // change background colour of tuner based on the Selection
 
-            $tuner.removeClass('full-step half-step standard');
+            tunerApp.$tuner.removeClass('full-step half-step standard');
             if (selection === "fullStepDown") {
-                $tuner.addClass('full-step');
+                tunerApp.$tuner.addClass('full-step');
             } else if (selection === "halfStepDown") {
-                $tuner.addClass('half-step');
+                tunerApp.$tuner.addClass('half-step');
             } else if (selection === "standard") {
-                $tuner.addClass('standard');
+                tunerApp.$tuner.addClass('standard');
             } 
 
             if (selection === "noSelection") {
@@ -109,6 +106,9 @@
                 $popularSongs.append(`<li>${i}</li>`);
             });
         });
+    }
+
+    tunerApp.playSound = () => {
 
         const tuningSounds = {
             standard: [
@@ -137,7 +137,7 @@
             ]
         };
         
-        $tuner.on('click', '.button', function(key) { // event bubbling
+        tunerApp.$tuner.on('click', '.button', function(key) { // event bubbling
             // get the current note from the button pressed
             const currentButton = $(this).data('key');
             console.log(currentButton);
@@ -152,9 +152,13 @@
 
             // sound object contains a play method that will play the sound
             sound.play();
-  
         });
-    
+    }
+
+    $(function () {
+
+        tunerApp.init();
+
     });
 
 // ASSIGN DOM ELEMENTS TO VARIABLES
