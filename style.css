@@ -234,6 +234,29 @@ h2 {
   margin-top: 8%;
 }
 
+select {
+  width: 300px;
+  font-size: 1.3rem;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-bottom: 4px solid #000;
+  padding: 5px;
+  margin-bottom: 10%;
+  text-align: center;
+  background: transparent;
+  color: #5a667a;
+}
+
+option {
+  color: #000;
+}
+
+.select-tuning {
+  color: #5a667a;
+}
+
 .message {
   margin: 0 0 10px 0;
   color: #5a667a;
@@ -280,12 +303,16 @@ h2 {
   -webkit-transition: .1s all ease-out;
   -o-transition: .1s all ease-out;
   transition: .1s all ease-out;
-  -webkit-box-shadow: 3px 3px 5px #5a667a;
-  box-shadow: 3px 3px 5px #5a667a;
   color: #5a667a;
 }
 
 .tuner .button:hover {
+  color: #000;
+  -webkit-box-shadow: 3px 3px 5px #5a667a;
+  box-shadow: 3px 3px 5px #5a667a;
+}
+
+.tuner .button:active {
   -webkit-transform: scale(0.95);
   -ms-transform: scale(0.95);
   transform: scale(0.95);
@@ -314,29 +341,6 @@ h2 {
   background-image: -webkit-linear-gradient(top, #55dab8, #24a584);
   background-image: -o-linear-gradient(top, #55dab8, #24a584);
   background-image: linear-gradient(to bottom, #55dab8, #24a584);
-}
-
-select {
-  width: 300px;
-  font-size: 1.3rem;
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-bottom: 4px solid #000;
-  padding: 5px;
-  margin-bottom: 10%;
-  text-align: center;
-  background: transparent;
-  color: #5a667a;
-}
-
-option {
-  color: #000;
-}
-
-.select-tuning {
-  color: #5a667a;
 }
 
 .list-title span {

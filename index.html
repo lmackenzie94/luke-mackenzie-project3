@@ -67,7 +67,7 @@
                 halfStepDown: ['D#', 'G#', 'C#', 'F#', 'A#', 'D#'],
                 noSelection: []
             }
-            // const $tuner = $('.tuner');
+
             const $popularSongs = $('.list-songs ul');
 
             // empty tuner & popular song list after every change in Selection
@@ -75,10 +75,10 @@
             $popularSongs.empty();
 
             // populate tuner with buttons based on the Selection
-            let keyCount = 6;
+            let stringCount = 6;
             notes[selection].forEach((i) => {
-                tunerApp.$tuner.append(`<div class="button" data-key="${keyCount}">${i}</div>`);
-                keyCount--;
+                tunerApp.$tuner.append(`<div class="button" data-string="${stringCount}">${i}</div>`);
+                stringCount--;
             })
 
             // change background colour of tuner based on the Selection
@@ -99,8 +99,6 @@
                 $('.list-title').html(`<h2>Popular songs in <span>${selection}</span> tuning</h2>`);
                 $('.message').text('click a button to hear the corresponding note:');
             }
-
-            console.log(selection);
 
             currentSongList.forEach(i => {
                 $popularSongs.append(`<li>${i}</li>`);
@@ -137,22 +135,23 @@
             ]
         };
         
-        tunerApp.$tuner.on('click', '.button', function(key) { // event bubbling
-            // get the current note from the button pressed
-            const currentButton = $(this).data('key');
-            console.log(currentButton);
+        tunerApp.$tuner.on('click', '.button', function() { // event bubbling
 
-            // Using the note defined above, find the corresponding audio file from the standardTuning array
+            // get the current note from the button pressed
+            const currentButton = $(this).data('string');
+
+            // using the note defined above, find corresponding audio file from the tuningSounds array
             const currentSelection = $('select').val();
             const audioFile = tuningSounds[currentSelection][currentButton - 1];
-            console.log(currentSelection);
 
-            // Now that we have the correct audio file, instantiate a new Audio object, passing in the audio file
+            // create new Audio object, passing in the audio file
             const sound = new Audio(audioFile);
 
-            // sound object contains a play method that will play the sound
+            // use play method to play the sound
             sound.play();
+
         });
+
     }
 
     $(function () {
@@ -161,10 +160,7 @@
 
     });
 
-// ASSIGN DOM ELEMENTS TO VARIABLES
- 
-
-
+    
 
 
 

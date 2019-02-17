@@ -21,6 +21,27 @@ h2 {
     margin-top: 8%;
 }
 
+select {
+    width: 300px;
+    font-size: 1.3rem;
+    border: none;
+    appearance: none;
+    border-bottom: 4px solid #000;
+    padding: 5px;
+    margin-bottom: 10%;
+    text-align: center;
+    background: transparent;
+    color: $second-font-colour;
+}
+
+option {
+    color: #000;
+}
+
+.select-tuning {
+    color: $second-font-colour;
+}
+
 .message {
     margin: 0 0 10px 0;
     color: $second-font-colour;
@@ -47,9 +68,12 @@ h2 {
         margin: 1%;
         background: $button-colour;
         transition: .1s all ease-out;
-        box-shadow: 3px 3px 5px $second-font-colour;
         color: $second-font-colour;
         &:hover {
+            color: #000;
+            box-shadow: 3px 3px 5px $second-font-colour;
+        }
+        &:active {
             transform: scale(.95);
             box-shadow: none;
             color: #000;
@@ -68,27 +92,6 @@ h2 {
 
 .tuner.half-step {
     background-image: linear-gradient(to bottom, $tuner-background-3, darken($tuner-background-3, 20%));
-}
-
-select {
-    width: 300px;
-    font-size: 1.3rem;
-    border: none;
-    appearance: none;
-    border-bottom: 4px solid #000;
-    padding: 5px;
-    margin-bottom: 10%;
-    text-align: center;
-    background: transparent;
-    color: $second-font-colour;
-}
-
-option {
-    color: #000;
-}
-
-.select-tuning {
-    color: $second-font-colour;
 }
 
 .list-title span {
