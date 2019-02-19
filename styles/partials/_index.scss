@@ -2,6 +2,7 @@ header {
     font-family: $base-font;
     min-height: 100vh;
     background: url(assets/background.svg) no-repeat center;
+    // background svg adapted from Noun Project image by Gustavo Perez Rangel.
     background-size: cover;
 }
 
@@ -32,6 +33,10 @@ select {
     text-align: center;
     background: transparent;
     color: $second-font-colour;
+    cursor: context-menu;
+    &:focus {
+        border-bottom: 4px solid $accent-font-colour;
+    }
 }
 
 option {

@@ -14,12 +14,13 @@
             <h1>- Guitar Tuner -</h1>
 
             <form action="">
-                <label for="tuning" class="visuallyHidden">Select tuning:</label>
+                <label for="tuning" class="visually-hidden">Select tuning:</label>
                 <select name="tuning" id="tuning">
                     <option value="noSelection" selected class="select-tuning">Please select a tuning:</option>
                     <option value="standard">Standard</option>
                     <option value="halfStepDown">Half-step-down</option>
                     <option value="fullStepDown">Full-step-down</option>
+                    // the values are purposely not kebab case
                 </select>
             </form>
 
@@ -48,17 +49,16 @@
         tunerApp.updateTuner();
         tunerApp.playSound();
     }
-
-    const songList = {
-        standard: ['Free Fallin\' - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
-        fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons'],
-        halfStepDown: ['Swing Life Away - Rise Against', 'Sweet Child O\' Mine - Guns N\' Roses', 'Bold As Love - Jimi Hendrix']
-    }
         
     tunerApp.updateTuner = () => {
 
         $('select').change(function() {
 
+            const songList = {
+                standard: ['Free Fallin\' - Tom Petty', 'Tears in Heaven - Eric Clapton', 'Gravity - John Mayer'],
+                fullStepDown: ['Say Goodnight - Bullet For My Valentine', 'Adam\'s Song - Blink-182', 'Timshel - Mumford & Sons'],
+                halfStepDown: ['Swing Life Away - Rise Against', 'Sweet Child O\' Mine - Guns N\' Roses', 'Bold As Love - Jimi Hendrix']
+            }
             const selection = $('select').val();
             const currentSongList = songList[selection];
             const notes = {
@@ -67,7 +67,6 @@
                 halfStepDown: ['D#', 'G#', 'C#', 'F#', 'A#', 'D#'],
                 noSelection: []
             }
-
             const $popularSongs = $('.list-songs ul');
 
             // empty tuner & popular song list after every change in Selection
@@ -133,7 +132,7 @@
                 "assets/sounds/half-step-5.wav",
                 "assets/sounds/half-step-6.wav",
             ]
-        };
+        };  // all audio files were created by me.
         
         tunerApp.$tuner.on('click', '.button', function() { // event bubbling
 
@@ -159,10 +158,6 @@
         tunerApp.init();
 
     });
-
-    
-
-
 
 </script>
 

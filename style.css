@@ -167,7 +167,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box;
 }
 
-.visuallyHidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -247,6 +247,11 @@ select {
   text-align: center;
   background: transparent;
   color: #5a667a;
+  cursor: context-menu;
+}
+
+select:focus {
+  border-bottom: 4px solid #da7655;
 }
 
 option {
