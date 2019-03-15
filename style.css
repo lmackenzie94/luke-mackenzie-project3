@@ -201,7 +201,7 @@ h1, h2 {
 .wrapper {
   max-width: 1600px;
   width: 95%;
-  margin: 0 auto 4% auto;
+  margin: 0 auto;
 }
 
 header {
@@ -236,7 +236,7 @@ h2 {
 
 select {
   width: 300px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -245,6 +245,7 @@ select {
   padding: 5px;
   margin-bottom: 10%;
   text-align: center;
+  text-align-last: center;
   background: transparent;
   color: #5a667a;
   cursor: context-menu;
@@ -365,6 +366,21 @@ li {
   .tuner .button {
     margin: 3% 3%;
   }
+  header {
+    background-position-x: 0;
+  }
+  .content {
+    padding-left: 12%;
+  }
+}
+
+@media (max-width: 650px) {
+  header {
+    background: none;
+  }
+  .content {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 475px) {
@@ -379,6 +395,7 @@ li {
   }
   h2 {
     font-size: 1.3rem;
+    text-align: center;
   }
   select {
     width: 250px;

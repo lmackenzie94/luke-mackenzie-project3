@@ -60,6 +60,7 @@
                 halfStepDown: ['Swing Life Away - Rise Against', 'Sweet Child O\' Mine - Guns N\' Roses', 'Bold As Love - Jimi Hendrix']
             }
             const selection = $('select').val();
+            const formattedSelection = $('select').find(':selected').text();
             const currentSongList = songList[selection];
             const notes = {
                 standard: ['E', 'A', 'D', 'G', 'B', 'E'],
@@ -95,7 +96,7 @@
                 $('.list-title').html(`<h2>Please select a tuning above</h2>`);
                 $('.message').text('');
             } else {
-                $('.list-title').html(`<h2>Popular songs in <span>${selection}</span> tuning</h2>`);
+                $('.list-title').html(`<h2>Popular songs in <span>${formattedSelection}</span> tuning</h2>`);
                 $('.message').text('click a button to hear the corresponding note:');
             }
 
