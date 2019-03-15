@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Guitar Tuner</title>
+    <title>Tune It</title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="content wrapper">
-            <h1>- Guitar Tuner -</h1>
+            <h1>- Tune It -</h1>
 
             <form action="">
                 <label for="tuning" class="visually-hidden">Select tuning:</label>
@@ -77,7 +77,7 @@
             // populate tuner with buttons based on the Selection
             let stringCount = 6;
             notes[selection].forEach((i) => {
-                tunerApp.$tuner.append(`<div class="button" data-string="${stringCount}">${i}</div>`);
+                tunerApp.$tuner.append(`<div class="button" tabindex="0" data-string="${stringCount}">${i}</div>`);
                 stringCount--;
             })
 
@@ -149,6 +149,26 @@
 
             // use play method to play the sound
             sound.play();
+
+        });
+
+        tunerApp.$tuner.on('keypress', '.button', function (e) { // event bubbling
+
+            console.log(e.keyCode);
+            if (e.keyCode === 13) {
+                  // get the current note from the button pressed
+                const currentButton = $(this).data('string');
+
+                // using the note defined above, find corresponding audio file from the tuningSounds array
+                const currentSelection = $('select').val();
+                const audioFile = tuningSounds[currentSelection][currentButton - 1];
+
+                // create new Audio object, passing in the audio file
+                const sound = new Audio(audioFile);
+
+                // use play method to play the sound
+                sound.play();
+            }
 
         });
 
