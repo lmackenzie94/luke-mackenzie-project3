@@ -312,7 +312,7 @@ option {
   color: #5a667a;
 }
 
-.tuner .button:hover {
+.tuner .button:hover, .tuner .button:focus {
   color: #000;
   -webkit-box-shadow: 3px 3px 5px #5a667a;
   box-shadow: 3px 3px 5px #5a667a;
